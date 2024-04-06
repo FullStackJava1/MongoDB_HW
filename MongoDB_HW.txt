@@ -1,0 +1,57 @@
+Insertion Exercises:
+
+Insert One Document:
+Insert a document for a book titled "Hamlet" written by William Shakespeare, published in the year 1600.
+
+use myDB
+switched to db myDB
+ 
+ 
+db.laibrary.insertOne({titled:"Hamlet",writen:"William Shakespeare",publishedYear:1600})
+
+Insert Many Documents:
+Insert multiple documents for books including:
+
+"Don Quixote" by Miguel de Cervantes (1605)
+"The Witcher" by Andrzej Sapkowski (1990)
+"Pride and Prejudice" by Jane Austen (1813)
+"To Kill a Mockingbird" by Harper Lee (1960)
+"1984" by George Orwell (1949)
+"The Great Gatsby" by F. Scott Fitzgerald (1925)
+
+db.laibrary.insertMany([
+{titled:"Don Quixote" ,writen:"Miguel de Cervantes" ,publishedYear: 1605},
+{titled:"The Witcher" ,writen: "Andrzej Sapkowski" ,publishedYear: 1990},
+{titled:"Pride and Prejudice" ,writen: "Jane Austen" ,publishedYear:1813},
+{titled:"To Kill a Mockingbird", writen: "Harper Lee",publishedYear: 1960},
+{titled:"1984" ,writen:"George Orwell" ,publishedYear:1949},
+{titled:"The Great Gatsby" ,writen: "F. Scott Fitzgerald",publishedYear: 1925}])
+
+Querying Exercises:
+
+Find Books Published After 2000:
+Query the database to find all books published after the year 2000.
+
+db.laibrary.find({publishedYear:{$gt:2000}})
+
+Find Books by Specific Author:
+Find all books written by Jane Austen.
+
+db.laibrary.find({writen:"Jane Austen"})
+
+Find a Specific Book:
+Look up a book with the title "To Kill a Mockingbird".
+
+db.laibrary.find({titled:"To Kill a Mockingbird"})
+
+Find Books Between Certain Years:
+Retrieve books published between the years 1900 and 1950.
+
+db.laibrary.find({publishedYear:{$gt:1900,$lt:1950 }})
+
+Find Books with Title Starting with a Specific Letter:
+Retrieve books whose titles start with the letter "T".
+
+db.laibrary.find({titled:{$regex: /^T/}})
+
+
